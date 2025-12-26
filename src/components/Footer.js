@@ -8,11 +8,7 @@ const Footer = () => {
           © {new Date().getFullYear()} Pakistan Explorer. All rights reserved.
         </div>
         <div className="right">
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
             <img src="/images/instagram.jpg" alt="Instagram" />
           </a>
           <a

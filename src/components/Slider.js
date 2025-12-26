@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 const slides = [
-  { title: 'Hunza Valley', subtitle: 'Majestic mountains and rivers', img: '/images/hunza.webp' },
-  { title: 'Islamabad', subtitle: 'Beautiful capital city', img: '/images/islamabad.jpg' },
-  { title: 'Lahore', subtitle: 'Cultural & historical hub', img: '/images/lahoree.webp' }
+  { title: 'Hunza Valley', subtitle: 'Majestic mountains and rivers', img: '/images/hunzaslider.jpg' },
+  { title: 'Islamabad', subtitle: 'Beautiful capital city', img: '/images/islamabadslider.jpg' },
+  { title: 'Lahore', subtitle: 'Cultural & historical hub', img: '/images/lahoreslider.jpg' }
 ];
 
 const Slider = () => {

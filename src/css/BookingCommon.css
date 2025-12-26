@@ -1,0 +1,67 @@
+.flights-page, .hotels-page {
+  padding: 50px 20px;
+  min-height: 80vh;
+  background-color: #f9f9f9;
+}
+
+.flights-page h1, .hotels-page h1 {
+  text-align: center;
+  color: #d9534f;
+  margin-bottom: 30px;
+}
+
+.flights-grid, .hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.flight-card, .hotel-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(20,24,40,0.08);
+  text-align: center;
+}
+
+.flight-card .btn, .hotel-card .btn {
+  margin-top: 10px;
+  background: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.flight-card .btn:hover, .hotel-card .btn:hover {
+  background-color: #c9302c;
+}
+/* Back Link */
+.back-link {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.back-link a {
+  color: #d9534f;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.back-link a:hover {
+  color: #c9302c;
+}
+.hotel-card img.hotel-image {
+  width: 100%;
+  max-height: 250px; /* optional */
+  height: auto;
+  border-radius: 12px 12px 0 0;
+  margin-bottom: 15px;
+  display: block;
+  object-fit: contain; /* preserves full image inside container */
+}
+.hotel-card img.hotel-image:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,169 @@
+/* Tours & Custom Packages */
+/* Main Headings */
+.tours-page h1, 
+.custom-packages-page h1,
+.tours-page h2, 
+.custom-packages-page h2 {
+  text-align: center;
+  color: #d9534f;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.tours-page, .custom-packages-page {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  min-height: 80vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tours-grid, .custom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.tour-card, .custom-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(20,24,40,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tour-card:hover, .custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+}
+
+.tour-card h3, .custom-card h3 {
+  color: #d9534f;
+  margin-bottom: 10px;
+}
+
+.tour-card p, .custom-card p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.tour-card .btn, .custom-card .btn {
+  padding: 10px 15px;
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tour-card .btn:hover, .custom-card .btn:hover {
+  background-color: #c9302c;
+}
+/* Form Container */
+.booking-page form,
+.booktour-page form,
+.custompackage-page form {
+  background-color: #fff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 6px 20px rgba(20,24,40,0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-page label,
+.booktour-page label,
+.custompackage-page label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.booking-page input,
+.booking-page textarea,
+.booktour-page input,
+.booktour-page textarea,
+.custompackage-page input,
+.custompackage-page textarea {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.booking-page textarea,
+.booktour-page textarea,
+.custompackage-page textarea {
+  resize: none;
+  height: 80px;
+}
+
+.booking-page button.btn,
+.booktour-page button.btn,
+.custompackage-page button.btn {
+  padding: 12px;
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-page button.btn:hover,
+.booktour-page button.btn:hover,
+.custompackage-page button.btn:hover {
+  background-color: #c9302c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .booking-page form,
+  .booktour-page form,
+  .custompackage-page form {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-page h2,
+  .booktour-page h2,
+  .custompackage-page h2 {
+    font-size: 1.5rem;
+  }
+
+  .booking-page input,
+  .booking-page textarea,
+  .booktour-page input,
+  .booktour-page textarea,
+  .custompackage-page input,
+  .custompackage-page textarea {
+    font-size: 0.9rem;
+  }
+}
+/* Back Link */
+.back-link {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.back-link a {
+  color: #d9534f;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.back-link a:hover {
+  color: #c9302c;
+}

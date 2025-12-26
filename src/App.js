@@ -7,8 +7,15 @@ import Destinations from './pages/Destinations';
 import About from './pages/About';
 import Services from './pages/Services';
 import Gallery from './pages/Gallery';
-import Contact from './pages/Contact';
-
+import Reviews from './pages/Reviews';
+import Packages from './pages/Packages';
+import BookPackage from './pages/BookPackage';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import BookFlight from './pages/BookFlight';
+import BookHotel from './pages/BookHotel';
+import BookTour from './pages/BookTour';  
+import CustomPackage from './pages/CustomPackage';
 function App() {
   return (
     <div className="app-root">
@@ -17,10 +24,20 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/destinations" element={<Destinations />} />
+          <Route path="/packages/:destinationName" element={<Packages />} />
+  <Route path="/book/:destinationName/:packageName" element={<BookPackage />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/flight/book" element={<BookFlight />} />
+          <Route path="/services/hotel/book" element={<BookHotel />} />
+          <Route path="/services/tours" element={<BookTour />} />
+          <Route path="/services/packages" element={<CustomPackage />} />
+
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          
         </Routes>
       </main>
       <Footer />
