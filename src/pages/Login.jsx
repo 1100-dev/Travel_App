@@ -18,7 +18,16 @@ const Login = () => {
 
       if (response.data.token) {
         setLoggedIn(true);
-        localStorage.setItem("user", JSON.stringify({ username: response.data.username, token: response.data.token }));
+        // ✅ Store _id, username, email, and token
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            _id: response.data._id,
+            username: response.data.username,
+            email: response.data.email,
+            token: response.data.token,
+          })
+        );
         alert("Logged in successfully!");
       } else {
         alert(response.data.message);

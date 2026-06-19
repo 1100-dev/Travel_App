@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate , Link} from "react-router-dom";
-import axios from "axios";
+import { useNavigate , Link } from "react-router-dom";
 import "../css/BookingCommon.css";
 
 const BookFlight = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
 
-  const [flights, setFlights] = useState([
+  const [flights] = useState([
     {
       flightNumber: "PK-201",
       airline: "Pakistan Airlines",
@@ -34,36 +33,20 @@ const BookFlight = () => {
     }
   }, [navigate, user]);
 
-  const handleBookFlight = async (flight) => {
-    if (!user) return;
-    try {
-      const response = await axios.post("http://localhost:5000/api/book", {
-        userId: user._id,
-        destination: flight.to,
-        packageName: `Flight ${flight.flightNumber}`,
-        fullName: user.name,
-        email: user.email,
-        phone: "", // can be added as input if needed
-        address: "", // optional
-      });
-
-      if (response.data.success) {
-        alert("Flight booked successfully!");
-        navigate("/"); // go home or to a confirmation page
-      } else {
-        alert(response.data.message || "Booking failed");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Booking failed. Try again later.");
+  const handleBookFlight = (flight) => {
+    if (!user) {
+      navigate("/login");
+      return;
     }
+    // Navigate to booking form page, passing flight info
+    navigate(`/book-flight/${flight.flightNumber}`, { state: { flight } });
   };
 
   if (!user) return null;
 
   return (
     <div className="flights-page">
-    <div className="back-link container">
+      <div className="back-link container">
         <Link to="/services">&larr; Back to Services</Link>
       </div>
       <h1>Available Flights</h1>

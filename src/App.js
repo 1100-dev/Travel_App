@@ -16,6 +16,8 @@ import BookFlight from './pages/BookFlight';
 import BookHotel from './pages/BookHotel';
 import BookTour from './pages/BookTour';  
 import CustomPackage from './pages/CustomPackage';
+import BookHotelForm from './pages/BookHotelForm';
+import BookFlightForm from './pages/BookFlightForm';
 function App() {
   return (
     <div className="app-root">
@@ -29,7 +31,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/flight/book" element={<BookFlight />} />
+          <Route path="/book-flight/:flightNumber" element={<BookFlightForm />} />
           <Route path="/services/hotel/book" element={<BookHotel />} />
+          <Route path="/book-hotel/:hotelName" element={<BookHotelForm />} />
           <Route path="/services/tours" element={<BookTour />} />
           <Route path="/services/packages" element={<CustomPackage />} />
 

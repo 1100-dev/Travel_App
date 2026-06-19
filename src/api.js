@@ -12,10 +12,10 @@ export const login = (data) => API.post("/auth/login", data);
 export const bookPackage = (data) => API.post("/book", data);
 
 // REVIEWS
-export const addReview = (data) => API.post("/reviews", data);
-export const getReviews = () => API.get("/reviews");
+// export const addReview = (data) => API.post("/reviews", data);
+// export const getReviews = () => API.get("/reviews");
 
 // PACKAGES
-export const getPackages = () => API.get("/packages");
+// export const getPackages = () => API.get("/packages");
 
-export default API;
+// export default API;

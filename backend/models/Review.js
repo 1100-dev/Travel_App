@@ -1,10 +1,23 @@
 import mongoose from "mongoose";
 
-const reviewSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  userName: { type: String, required: true },
-  review: { type: String, required: true }
-}, { timestamps: true });
+const { Schema, model } = mongoose;
 
-const Review = mongoose.model("Review", reviewSchema);
+const reviewSchema = new Schema(
+  {
+    userId: { type: Schema.Types.ObjectId, ref: "User", required: false }, // optional link to user
+    userName: { type: String, required: true },
+    text: { type: String, required: true },
+    serviceType: {
+      type: String,
+      enum: ["hotel", "flight", "tour", "package"],
+      required: false,
+    }, // optional: link review to a service type
+    serviceId: { type: Schema.Types.ObjectId, required: false }, // optional: link to specific service
+    createdAt: { type: Date, default: Date.now },
+  },
+  { versionKey: false } // removes __v field
+);
+
+const Review = model("Review", reviewSchema);
+
 export default Review;

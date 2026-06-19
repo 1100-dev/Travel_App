@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate , Link } from "react-router-dom";
-import axios from "axios";
 import "../css/BookingCommon.css";
 
 const BookHotel = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
 
-  const [hotels, setHotels] = useState([
+  const [hotels] = useState([
     {
       name: "Hunza Grand Hotel",
       location: "Hunza Valley",
@@ -42,7 +41,6 @@ const BookHotel = () => {
       rating: "4.5",
       price: "PKR 3,500/night",
       image: "/images/jasmine inn.webp",
-      
     },
     {
       name: "Hotel Tulip Inn",
@@ -59,29 +57,13 @@ const BookHotel = () => {
     }
   }, [navigate, user]);
 
-  const handleBookHotel = async (hotel) => {
-    if (!user) return;
-    try {
-      const response = await axios.post("http://localhost:5000/api/book", {
-        userId: user._id,
-        destination: hotel.location,
-        packageName: `Hotel ${hotel.name}`,
-        fullName: user.name,
-        email: user.email,
-        phone: "", // optional
-        address: "", // optional
-      });
-
-      if (response.data.success) {
-        alert("Hotel booked successfully!");
-        navigate("/"); // go home or to confirmation
-      } else {
-        alert(response.data.message || "Booking failed");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Booking failed. Try again later.");
+  const handleBookHotel = (hotel) => {
+    if (!user) {
+      navigate("/login");
+      return;
     }
+    // Navigate to booking form page, passing hotel info
+    navigate(`/book-hotel/${hotel.name}`, { state: { hotel } });
   };
 
   if (!user) return null;

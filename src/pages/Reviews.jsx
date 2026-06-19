@@ -1,24 +1,43 @@
-import React, { useState } from "react";
-import '../css/Reviews.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "../css/Reviews.css";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
-  const user = JSON.parse(localStorage.getItem("user")); // get logged-in user
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  const handleSubmit = (e) => {
+  // Fetch reviews on mount
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/reviews");
+        setReviews(res.data);
+      } catch (err) {
+        console.error("Error fetching reviews:", err);
+      }
+    };
+    fetchReviews();
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const reviewText = e.target.review.value.trim();
     if (reviewText === "") return;
 
-    // Add review with user name
     const newReview = {
-      userName: user ? user.name : "Anonymous",
+      userName: user ? user.username : "Anonymous", // use username
       text: reviewText,
     };
 
-    setReviews([...reviews, newReview]);
-    alert("Review submitted!");
-    e.target.reset(); // clear form
+    try {
+      const res = await axios.post("http://localhost:5000/api/reviews", newReview);
+      setReviews([res.data.review, ...reviews]); // prepend new review
+      alert("Review submitted!");
+      e.target.reset();
+    } catch (err) {
+      console.error("Error submitting review:", err);
+      alert("Failed to submit review");
+    }
   };
 
   return (

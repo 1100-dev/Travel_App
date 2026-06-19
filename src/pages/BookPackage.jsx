@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../css/BookPackage.css";
 
@@ -7,56 +7,82 @@ const BookPackage = () => {
   const { destinationName, packageName } = useParams();
   const navigate = useNavigate();
 
-  // Check if user is logged in
-  const user = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    if (!user) {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (!storedUser) {
       navigate("/login");
+    } else {
+      setUser(storedUser);
     }
-  }, [navigate, user]);
+  }, [navigate]);
 
   const [details, setDetails] = useState({
-    fullName: user ? user.name : "",
-    email: user ? user.email : "",
+    fullName: "",
+    email: "",
     phone: "",
     address: "",
   });
+
+  useEffect(() => {
+    if (user) {
+      setDetails({
+        fullName: user.username, // ✅ use username instead of user.name
+        email: user.email,
+        phone: "",
+        address: "",
+      });
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     setDetails({ ...details, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!user) return; // extra safety
-
-    try {
-      const response = await axios.post("http://localhost:5000/api/book", {
+  try {
+    const res = await axios.post(
+      "http://localhost:5000/api/book",
+      {
         userId: user._id,
         destination: destinationName,
-        packageName: packageName, // updated to match backend
+        packageName,
         ...details,
-      });
-
-      if (response.data.success) {
-        alert("Booking successful!");
-        navigate("/"); // redirect home
-      } else {
-        alert(response.data.message || "Booking failed. Try again later.");
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
-    } catch (error) {
-      console.error(error);
-      alert("Booking failed. Try again later.");
-    }
-  };
+    );
 
-  if (!user) return null; // render nothing until redirect
+    console.log("RESPONSE:", res.data);
+    alert("Booking success");
+
+    // ✅ Clear the form after success
+    setDetails({
+      fullName: "",
+      email: "",
+      phone: "",
+      address: "",
+    });
+
+    // ✅ Redirect to home page
+    navigate("/");
+  } catch (err) {
+    console.error("AXIOS ERROR:", err);
+    alert("Booking failed");
+  }
+};
+
+
+  if (!user) return null;
 
   return (
     <div className="booking-page container">
-      
       <h2>Booking: {packageName}</h2>
       <form onSubmit={handleSubmit} className="booking-form">
         <label>Full Name</label>
@@ -94,9 +120,7 @@ const BookPackage = () => {
           required
         />
 
-        <button type="submit" className="btn">
-          Confirm Booking
-        </button>
+        <button type="submit" className="btn">Confirm Booking</button>
       </form>
     </div>
   );

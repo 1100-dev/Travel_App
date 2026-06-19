@@ -1,4 +1,4 @@
-/* Page Wrapper */
+/* Page Wrapper
 .login-page,
 .signup-page {
   min-height: 100vh;
@@ -122,4 +122,4 @@
   .signup-container h2 {
     font-size: 1.5rem;
   }
-}
+} 
