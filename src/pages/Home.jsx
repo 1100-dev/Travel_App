@@ -177,30 +177,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-      
-      {/* <div className="trust-card">
-  <div className="trust-icon">🧭</div>
-  <h3>Trusted Guides</h3>
-  <p>Experienced local experts for safe journeys.</p>
-</div>
-
-<div className="trust-card">
-  <div className="trust-icon">💰</div>
-  <h3>Best Planning</h3>
-  <p>Well-organized travel packages for comfort.</p>
-</div>
-
-<div className="trust-card">
-  <div className="trust-icon">🛡️</div>
-  <h3>Affordable Trips</h3>
-  <p>Premium experiences at reasonable prices.</p>
-</div>
-
-<div className="trust-card">
-  <div className="trust-icon">📞</div>
-  <h3>24/7 Support</h3>
-  <p>We’re always available during your journey.</p>
-</div> */}
 <section className="trust-section">
   <div className="trust-header">
     <h2>Why Choose Us</h2>
