@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import "../css/slider.css";
 const slides = [
   { title: 'Hunza Valley', subtitle: 'Majestic mountains and rivers', img: '/images/hunzaslider.jpg' },
   { title: 'Islamabad', subtitle: 'Beautiful capital city', img: '/images/islamabadslider.jpg' },
