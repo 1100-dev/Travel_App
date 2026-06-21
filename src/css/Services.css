@@ -1,161 +1,121 @@
-.services-page {
-  padding: 60px 20px;
-  background: radial-gradient(circle at top, #f6f7fb, #eef1f7);
-  min-height: 100vh;
-}
-
-/* HERO */
-.services-hero {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.services-hero h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-}
-
-.services-hero p {
-  color: #666;
-  max-width: 700px;
-  margin: 10px auto;
-}
-
-/* TOOLBAR */
-.services-toolbar {
-  max-width: 1000px;
-  margin: 30px auto;
+.services-dashboard {
   display: flex;
-  flex-direction: column;
+  min-height: 80vh;
+  background: #f6f7fb;
+  font-family: system-ui;
+}
+
+/* SIDEBAR */
+.services-sidebar {
+  width: 280px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 25px;
+}
+
+.services-sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.sub {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* TABS */
+.service-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #444;
+}
+
+.service-tab:hover {
+  background: #f1f5f9;
+}
+
+.service-tab.active {
+  background: #111827;
+  color: #fff;
+}
+
+/* CONTENT */
+.services-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* MAIN CARD */
+.service-card {
+  width: 500px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  animation: fade 0.3s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HEADER */
+.service-header {
+  display: flex;
+  align-items: center;
   gap: 15px;
 }
 
-.services-toolbar input {
-  padding: 12px 15px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  outline: none;
+.big-icon {
+  font-size: 30px;
 }
 
-.filter-tabs {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+.service-header h1 {
+  font-size: 22px;
 }
 
-.filter-tabs button {
-  padding: 8px 14px;
-  border-radius: 20px;
-  border: none;
-  background: #eee;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.filter-tabs button.active {
-  background: #111;
-  color: #fff;
-}
-
-/* GRID */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* CARD */
-.service-card {
-  position: relative;
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
-  padding: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  overflow: hidden;
-  transition: 0.3s;
-}
-
-.service-card:hover {
-  transform: translateY(-8px) scale(1.02);
-}
-
-/* glowing background */
-.service-glow {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  filter: blur(80px);
-  opacity: 0.25;
-  top: -40px;
-  right: -40px;
-}
-
-/* top row */
-.service-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.icon {
-  font-size: 28px;
-}
-
-.badge {
-  font-size: 11px;
-  background: #000;
-  color: #fff;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
-/* text */
-.service-card h3 {
-  margin-top: 15px;
-  font-size: 1.3rem;
-}
-
-.service-card p {
-  font-size: 0.95rem;
+/* DESC */
+.desc {
+  margin: 15px 0;
   color: #555;
-  margin-top: 8px;
+  line-height: 1.5;
 }
 
-/* button */
-.service-btn {
-  margin-top: 15px;
-  padding: 10px 15px;
+/* HIGHLIGHTS */
+.highlights {
+  margin: 20px 0;
+}
+
+.highlight-item {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #333;
+}
+
+/* BUTTON */
+.primary-btn {
+  margin-top: 20px;
+  padding: 12px 16px;
   border: none;
+  background: #111827;
+  color: white;
   border-radius: 10px;
-  background: #111;
-  color: white;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
-.service-btn:hover {
+.primary-btn:hover {
   background: #000;
-}
-.service-card {
-  position: relative;
-  transition: all 0.25s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-}
-
-.badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #ff3b3b;
-  color: white;
-  font-size: 10px;
-  padding: 4px 8px;
-  border-radius: 20px;
 }
