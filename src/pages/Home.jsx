@@ -1,12 +1,29 @@
 
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Slider from "../components/Slider";
 import "../css/Home.css";
 
 
 const Home = () => {
-  const navigate = useNavigate();
+  const [destination, setDestination] = useState("");
+const [duration, setDuration] = useState("");
+ const navigate = useNavigate();
+
+const handleSearch = () => {
+  const cleanDestination = destination.trim();
+  const cleanDuration = duration.trim();
+
+  // if nothing entered
+  if (!cleanDestination && !cleanDuration) return;
+
+  navigate("/packages/all", {
+    state: {
+      destination: cleanDestination,
+      duration: cleanDuration
+    }
+  });
+};
   useEffect(() => {
   const items = document.querySelectorAll(
     ".experience-item, .trust-card"
@@ -51,22 +68,30 @@ const Home = () => {
     <div className="search-fields">
       <div className="search-item">
         <label>Destination</label>
-        <input type="text" placeholder="Where do you want to go?" />
+       <input
+  type="text"
+  placeholder="Where do you want to go?"
+  value={destination}
+  onChange={(e) => setDestination(e.target.value)}
+/>
       </div>
 
       <div className="search-item">
         <label>Duration</label>
-        <select>
-          <option>Any Duration</option>
-          <option>1-3 Days</option>
-          <option>4-7 Days</option>
-          <option>1+ Week</option>
-        </select>
+       <select
+  value={duration}
+  onChange={(e) => setDuration(e.target.value)}
+>
+  <option value="">Any Duration</option>
+  <option value="1-3">1-3 Days</option>
+  <option value="4-7">4-7 Days</option>
+  <option value="7+">1+ Week</option>
+</select>
       </div>
 
-      <button className="explore-btn">
-        Explore Tours
-      </button>
+      <button className="explore-btn" onClick={handleSearch}>
+  Explore Tours
+</button>
     </div>
   </div>
 </section>
@@ -302,5 +327,3 @@ const Home = () => {
 };
 
 export default Home;
-
-

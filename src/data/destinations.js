@@ -1,6 +1,6 @@
 // src/data/destinations.js
 
-export const destinations = {
+ const destinations = {
   Hunza: {
     desc: "Hunza Valley is a mountainous valley in Gilgit-Baltistan, famous for stunning landscapes, rivers, and local culture.",
     images: [
@@ -157,3 +157,4 @@ export const destinations = {
     ]
   }
 };
+export default destinations;

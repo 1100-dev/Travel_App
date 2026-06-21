@@ -8,7 +8,6 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Reviews from './pages/Reviews';
-import Packages from './pages/Packages';
 import BookPackage from './pages/BookPackage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -19,15 +18,17 @@ import CustomPackage from './pages/CustomPackage';
 import BookHotelForm from './pages/BookHotelForm';
 import BookFlightForm from './pages/BookFlightForm';
 import Contact from './pages/Contact';
+import ScrollToTop from './pages/ScrollToTop';
+
 function App() {
   return (
     <div className="app-root">
       <Navbar />
+       <ScrollToTop />
       <main className="main-content container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/destinations" element={<Destinations />} />
-          <Route path="/packages/:destinationName" element={<Packages />} />
   <Route path="/book/:destinationName/:packageName" element={<BookPackage />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
@@ -43,6 +44,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<Contact />} />
+         
           
         </Routes>
       </main>
