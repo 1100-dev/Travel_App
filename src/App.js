@@ -1,5 +1,5 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from "./pages/ScrollToTop";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -18,9 +18,14 @@ import CustomPackage from './pages/CustomPackage';
 import BookHotelForm from './pages/BookHotelForm';
 import BookFlightForm from './pages/BookFlightForm';
 import Contact from './pages/Contact';
-import ScrollToTop from './pages/ScrollToTop';
-
+import Packages from "./pages/Packages";
+import React, { useEffect } from "react";
 function App() {
+  useEffect(() => {
+  if ("scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
+}, []);
   return (
     <div className="app-root">
       <Navbar />
@@ -44,8 +49,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<Contact />} />
+          <Route
+  path="/packages/:destinationName"
+  element={<Packages />}
+/>
          
-          
         </Routes>
       </main>
       <Footer />

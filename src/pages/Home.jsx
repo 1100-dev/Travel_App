@@ -11,18 +11,9 @@ const [duration, setDuration] = useState("");
  const navigate = useNavigate();
 
 const handleSearch = () => {
-  const cleanDestination = destination.trim();
-  const cleanDuration = duration.trim();
+  if (!destination.trim()) return;
 
-  // if nothing entered
-  if (!cleanDestination && !cleanDuration) return;
-
-  navigate("/packages/all", {
-    state: {
-      destination: cleanDestination,
-      duration: cleanDuration
-    }
-  });
+  navigate(`/packages/${destination.trim()}`);
 };
   useEffect(() => {
   const items = document.querySelectorAll(
