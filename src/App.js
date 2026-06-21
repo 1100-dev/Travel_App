@@ -18,6 +18,7 @@ import BookTour from './pages/BookTour';
 import CustomPackage from './pages/CustomPackage';
 import BookHotelForm from './pages/BookHotelForm';
 import BookFlightForm from './pages/BookFlightForm';
+import Contact from './pages/Contact';
 function App() {
   return (
     <div className="app-root">
@@ -41,6 +42,7 @@ function App() {
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/contact" element={<Contact />} />
           
         </Routes>
       </main>

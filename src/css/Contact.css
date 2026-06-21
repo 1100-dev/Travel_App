@@ -1,0 +1,144 @@
+/* =========================
+   PAGE BACKGROUND
+========================= */
+.contact-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px 20px;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.75),
+      rgba(255,255,255,0.85)
+    ),
+    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=80");
+
+  background-size: cover;
+  background-position: center;
+}
+/* =========================
+   MAIN WRAPPER
+========================= */
+
+.contact-wrapper {
+  width: 85%;
+  max-width: 1100px;
+
+  display: flex;
+  gap: 40px;
+
+  align-items: stretch;
+}
+
+/* =========================
+   LEFT INFO PANEL
+========================= */
+
+.contact-info {
+  flex: 1;
+
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-info h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.contact-info p {
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* =========================
+   GLASS FORM CARD
+========================= */
+
+.contact-card {
+  flex: 1;
+
+  padding: 40px;
+
+  border-radius: 24px;
+
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+}
+
+.contact-card h2 {
+  margin-bottom: 5px;
+}
+
+.contact-card p {
+  margin-bottom: 20px;
+  color: #64748b;
+}
+
+/* =========================
+   INPUT FIELDS
+========================= */
+
+.contact-card input,
+.contact-card textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+
+  border-radius: 10px;
+  border: 1px solid #ddd;
+
+  outline: none;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.contact-card button {
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #0d6efd;
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.contact-card button:hover {
+  background: #0b5ed7;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+}

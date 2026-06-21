@@ -124,45 +124,95 @@
 
 .destination-cta {
   width: 72vw;
-
   margin: 120px auto;
 
-  padding: 80px;
+  padding: 80px 60px;
 
   border-radius: 30px;
 
   text-align: center;
+  color: #111;
 
-  background:
-    linear-gradient(
-      135deg,
-      #0d6efd,
-      #3b82f6
-    );
+  /* glass effect */
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
-  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.12),
+    inset 0 1px rgba(255,255,255,0.4);
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.35s ease;
 }
 
+/* 🔥 LIFT EFFECT ON HOVER */
+.destination-cta:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 40px 90px rgba(0,0,0,0.18),
+    inset 0 1px rgba(255,255,255,0.5);
+}
+
+/* soft glow layer */
+.destination-cta::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+
+  background: radial-gradient(
+    circle,
+    rgba(13, 110, 253, 0.15),
+    transparent 60%
+  );
+
+  opacity: 0.6;
+  transform: rotate(20deg);
+}
+
+/* =========================
+   BUTTON (UPDATED)
+========================= */
+
+.destination-cta button {
+  background: #000;   /* black */
+  color: #fff;        /* white text */
+
+  border: none;
+  padding: 14px 32px;
+
+  border-radius: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  position: relative;
+  z-index: 2;
+}
+
+.destination-cta button:hover {
+  background:rgb(93, 95, 98);
+  transform: translateY(-2px);
+}
 .destination-cta h2 {
   font-size: 2.8rem;
   margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .destination-cta p {
   margin-bottom: 30px;
-}
-
-.destination-cta button {
-  background: white;
-  color: #111;
-
-  border: none;
-
-  padding: 15px 35px;
-
-  border-radius: 12px;
-
-  cursor: pointer;
+  color: rgba(0,0,0,0.7);
 }
 
 /* =========================
@@ -188,4 +238,27 @@
 
 }
 
+.destinations-page .card-grid .card .card-overlay h3 {
+  color: red !important;
+}
+.destinations-page .card-grid .card .card-overlay .dest-btn {
+  margin-top: 12px;
 
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #3b82f6;
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.destinations-page .card-grid .card .card-overlay .dest-btn:hover {
+  background: #1d4ed8;
+}
