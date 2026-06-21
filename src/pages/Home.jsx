@@ -1,10 +1,12 @@
 
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Slider from "../components/Slider";
 import "../css/Home.css";
 
 
 const Home = () => {
+  const navigate = useNavigate();
   useEffect(() => {
   const items = document.querySelectorAll(
     ".experience-item, .trust-card"
@@ -68,7 +70,15 @@ const Home = () => {
     </div>
   </div>
 </section>
-
+<br></br>
+<div className="section-heading">
+  <span>DISCOVER PAKISTAN</span>
+  <h2>Browse By Experience</h2>
+  <p>
+    From mountain adventures to cultural explorations,
+    find journeys tailored to your travel style.
+  </p>
+</div>
 <section className="experience-section">
 
   {/* 1 - Adventure */}
@@ -160,11 +170,87 @@ const Home = () => {
 
 </section>
 
+<section className="featured-tour-section">
+  <div className="featured-tour-image">
+    <img
+      src="https://images.unsplash.com/photo-1516490981167-dc990a242afe?auto=format&fit=crop&w=1400&q=80"
+      alt="Hunza Tour"
+    />
+  </div>
+
+  <div className="featured-tour-content">
+    <span className="featured-badge">FEATURED TOUR</span>
+
+    <h2>Hunza Explorer Adventure</h2>
+
+    <p>
+      Experience the breathtaking beauty of Hunza Valley with a carefully
+      planned journey through majestic mountains, crystal-clear lakes,
+      historic forts, and unforgettable cultural experiences.
+    </p>
+
+    <div className="tour-details">
+      <div>
+        <strong>7 Days</strong>
+        <span>Duration</span>
+      </div>
+
+      <div>
+        <strong>Transport</strong>
+        <span>Included</span>
+      </div>
+
+      <div>
+        <strong>PKR 45,000</strong>
+        <span>Starting From</span>
+      </div>
+    </div>
+
+    <button className="featured-btn">
+      Explore Package
+    </button>
+  </div>
+</section>
+<section className="adventure-banner">
+
+  <div className="adventure-overlay">
+
+    <span>DISCOVER PAKISTAN</span>
+
+    <h2>
+      Every Journey Begins
+      With A Single Step
+    </h2>
+
+    <p>
+      Explore breathtaking mountains, crystal-clear lakes,
+      historic landmarks, and unforgettable adventures
+      across Pakistan.
+    </p>
+
+    <button
+  className="banner-btn"
+  onClick={() => navigate("/destinations")}
+>
+  Start Exploring
+</button>
+
+  </div>
+
+</section>
+
+
    
 
       {/* Popular Destinations */}
       <section className="popular-destinations container">
-        <h2>Popular Destinations in Pakistan</h2>
+       <div className="section-title">
+  <span>TOP DESTINATIONS</span>
+  <h2>Popular Destinations In Pakistan</h2>
+  <p>
+    Explore some of the most beautiful places across the country.
+  </p>
+</div>
         <div className="card-grid">
           {popularDestinations.map((dest, i) => (
             <div key={i} className="card">
