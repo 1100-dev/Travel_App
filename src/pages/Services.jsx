@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "../css/Services.css";
 
@@ -10,49 +11,29 @@ const Services = () => {
     {
       id: "flight",
       title: "Flight Booking",
-      icon: "✈️",
-      desc: "Search and compare flights with live prices, routes, and timings.",
-      highlights: [
-        "Live airline prices",
-        "Multiple route options",
-        "Instant booking"
-      ],
+      desc: "Compare and book flights instantly with live pricing.",
+      image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05",
       route: "/services/flight/book"
     },
     {
       id: "hotel",
       title: "Hotel Booking",
-      icon: "🏨",
-      desc: "Find verified hotels from budget stays to luxury resorts.",
-      highlights: [
-        "Verified hotels",
-        "Best price guarantee",
-        "Location filters"
-      ],
+      desc: "Discover stays from budget to luxury hotels.",
+      image: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c",
       route: "/services/hotel/book"
     },
     {
       id: "tours",
       title: "Guided Tours",
-      icon: "🧭",
-      desc: "Explore destinations with expert local guides.",
-      highlights: [
-        "Local experts",
-        "Custom routes",
-        "Group & private tours"
-      ],
+      desc: "Explore destinations with expert guides.",
+      image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
       route: "/services/tours"
     },
     {
       id: "packages",
       title: "Custom Packages",
-      icon: "🎒",
-      desc: "Build your own personalized travel experience.",
-      highlights: [
-        "Fully customizable",
-        "Flexible pricing",
-        "Multi-city trips"
-      ],
+      desc: "Design your perfect travel experience.",
+      image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff",
       route: "/services/packages"
     }
   ];
@@ -60,55 +41,49 @@ const Services = () => {
   const current = services.find((s) => s.id === active);
 
   return (
-    <div className="services-dashboard">
+    <div className="services-cinematic">
 
-      {/* LEFT MENU */}
-      <div className="services-sidebar">
-
-        <h2>Services</h2>
-        <p className="sub">Choose what you need</p>
-
+      {/* LEFT NAV */}
+      <div className="services-nav">
         {services.map((s) => (
           <div
             key={s.id}
-            className={`service-tab ${active === s.id ? "active" : ""}`}
+            className={`nav-item ${active === s.id ? "active" : ""}`}
             onClick={() => setActive(s.id)}
           >
-            <span className="icon">{s.icon}</span>
-            <span>{s.title}</span>
+            {s.title}
           </div>
         ))}
-
       </div>
 
-      {/* RIGHT PANEL */}
-      <div className="services-content">
+      {/* RIGHT VISUAL */}
+      <div className="services-visual">
 
-        <div className="service-card">
-
-          <div className="service-header">
-            <span className="big-icon">{current.icon}</span>
-            <h1>{current.title}</h1>
-          </div>
-
-          <p className="desc">{current.desc}</p>
-
-          <div className="highlights">
-            {current.highlights.map((h, i) => (
-              <div key={i} className="highlight-item">
-                ✓ {h}
-              </div>
-            ))}
-          </div>
-
-          <button
-            onClick={() => navigate(current.route)}
-            className="primary-btn"
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current.id}
+            className="visual-slide"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            Continue →
-          </button>
 
-        </div>
+            <img src={current.image} alt="" />
+
+            <div className="overlay" />
+
+            <div className="content">
+              <h1>{current.title}</h1>
+              <p>{current.desc}</p>
+
+              <button onClick={() => navigate(current.route)}>
+                Explore Service
+              </button>
+            </div>
+
+          </motion.div>
+        </AnimatePresence>
 
       </div>
 
